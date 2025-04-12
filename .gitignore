@@ -3,3 +3,4 @@ backup.py
 .env
 .vscode
 get-pip.py
+.streamlit
