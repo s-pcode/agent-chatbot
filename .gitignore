@@ -4,3 +4,4 @@ backup.py
 .vscode
 get-pip.py
 .streamlit
+results.json

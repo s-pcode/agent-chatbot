@@ -104,8 +104,8 @@ if user_input := st.chat_input("Type your message"):
                 if list_resp.status_code == 200:
                     results = list_resp.json().get("results", [])
                     # store the results in a file
-                    with open("results.json", "w") as f:
-                        json.dump(results, f, indent=4)
+                    # with open("results.json", "w") as f:
+                    #     json.dump(results, f, indent=4)
                     if (
                         len(results) > 2 and 
                         "chain_config" in results[-2]["data"]["message"] and 
