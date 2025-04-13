@@ -103,13 +103,16 @@ if user_input := st.chat_input("Type your message"):
                 list_resp = requests.post(list_url, headers=headers, json=list_payload)
                 if list_resp.status_code == 200:
                     results = list_resp.json().get("results", [])
+                    # store the results in a file
+                    with open("results.json", "w") as f:
+                        json.dump(results, f, indent=4)
                     if (
                         len(results) > 2 and 
                         "chain_config" in results[-2]["data"]["message"] and 
-                        results[-2]["data"]["message"]["chain_config"].get("title") == "Aplha 30/7"
+                        results[-2]["data"]["message"]["chain_config"].get("title") == "Performance Tool"
                     ):
                         item = results[1]
-                        msg_data = item.get("data", {}).get("message", {}).get("action_output", {}).get("python_transformed", {})
+                        msg_data = item.get("data", {}).get("message", {}).get("action_output", {}).get("transformed", {})
                         # if msg_data.get("role") == "action-response":
                         agent_reply = msg_data.get("chart_data")
                     else:
