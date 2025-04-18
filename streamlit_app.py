@@ -32,16 +32,16 @@ auth_token = f"{project_id}:{api_key}"
 headers = {"Authorization": auth_token, "Content-Type": "application/json"}
 
 placeholder_texts = [
-    "🤖 agent alpha is thinking...",
+    "🤖 TARS is thinking...",
     "🧠 processing your request with intelligence...",
     "✨ give me a second to think that through...",
-    "🚀 crunching data in the alpha matrix...",
+    "🚀 crunching data in the TARS matrix...",
     "⏳ generating a smart response just for you..."
 ]
 
 # Set page configuration
-st.set_page_config(page_title="Agent Alpha Chat", page_icon="🤖")
-st.title("🤖 chat with agent alpha")
+st.set_page_config(page_title="Agent TARS Chat", page_icon="🤖")
+st.title("🤖 chat with TARS")
 
 # Display chat history
 for msg in st.session_state.messages:
