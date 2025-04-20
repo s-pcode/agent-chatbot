@@ -3,5 +3,5 @@ backup.py
 .env
 .vscode
 get-pip.py
-.streamlit
+.streamlit/secrets.toml
 results.json

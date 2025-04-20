@@ -32,16 +32,16 @@ auth_token = f"{project_id}:{api_key}"
 headers = {"Authorization": auth_token, "Content-Type": "application/json"}
 
 placeholder_texts = [
-    "🤖 TARS is thinking...",
+    "🤖 âTARS is thinking...",
     "🧠 processing your request with intelligence...",
     "✨ give me a second to think that through...",
-    "🚀 crunching data in the TARS matrix...",
+    "🚀 crunching data in the âTARS matrix...",
     "⏳ generating a smart response just for you..."
 ]
 
 # Set page configuration
-st.set_page_config(page_title="Agent TARS Chat", page_icon="🤖")
-st.title("🤖 chat with TARS")
+st.set_page_config(page_title="Agent âTARS Chat", page_icon="🤖")
+st.title("🤖 chat with âTARS")
 
 # Display chat history
 for msg in st.session_state.messages:
@@ -140,10 +140,9 @@ if user_input := st.chat_input("Type your message"):
             if isinstance(agent_reply, list):
                 fig = go.Figure()
                 for token in agent_reply:
-                    normalized_y = [(price / token["y"][0]) * 100 for price in token["y"]]
                     fig.add_trace(go.Scatter(
                         x=token["x"],
-                        y=normalized_y,
+                        y=token["y"],
                         mode="lines+markers",
                         name=token["symbol"]
                     ))
