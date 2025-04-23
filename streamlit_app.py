@@ -48,7 +48,7 @@ quick_prompts = [
     "what does aarna do?",
     "what is alpha 30/7 model?",
     "get vault recommendation",
-    "what are the different vaults?"
+    "what are âtv vaults?"
 ]
 for i, q in enumerate(quick_prompts):
     if cols[i % 2].button(q, key=f"prompt_{i}", use_container_width=True):
@@ -60,7 +60,7 @@ if user_input:
 # --- Handle Vault Quiz ---
 if "user_input" in st.session_state and "get vault recommendation" in st.session_state["user_input"].lower():
     st.session_state["pending_form"] = True
-    st.session_state.messages.append({"role": "user", "content": st.session_state["user_input"]})
+    # st.session_state.messages.append({"role": "user", "content": st.session_state["user_input"]})
     del st.session_state["user_input"]
 if st.session_state.get("pending_form"):
     with st.form("vault_quiz_form"):
@@ -195,9 +195,8 @@ elif "user_input" in st.session_state:
                 #     json.dump(list_resp.json(), f, indent=4)
                 # for item in list_resp.json().get("results", []):
                 if list_resp.json().get("results", []):
-                    _item = list_resp.json()["results"][0]
-                    # print(_item.get("data", {}).get("message", {}).get("content"))
-                    if "performance" not in _item.get("data", {}).get("message", {}).get("content"):
+                    # _item = list_resp.json()["results"][0]
+                    if list_resp.json()["results"][1].get("data", {}).get("message", {}).get("action_output").get("transformed",{}).get("chart_data",{}) == {}:
                         item = list_resp.json()["results"][0]
                         msg = item.get("data", {}).get("message", {})
                         if msg.get("role") == "agent":
