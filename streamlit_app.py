@@ -277,7 +277,23 @@ elif "user_input" in st.session_state:
         ),
             )
 
-            placeholder.plotly_chart(fig, use_container_width=True)
+            # Two separate placeholders
+            chart_placeholder = st.empty()
+            text_placeholder = st.empty()
+            
+                 # Get and display the content
+            list_resp_json = list_resp.json()
+            summarized_content = list_resp_json["results"][0]["data"]["message"]["content"]
+            text_placeholder.markdown(summarized_content)
+
+            # Save to session state
+            st.session_state.messages.append({
+                "role": "assistant",
+                "content": summarized_content
+            })
+            
+            # Show the chart
+            chart_placeholder.plotly_chart(fig, use_container_width=True)   
 
         elif isinstance(reply, str):
             placeholder.markdown(reply)
