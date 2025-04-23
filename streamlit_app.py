@@ -255,7 +255,7 @@ elif "user_input" in st.session_state:
                     xref="paper", yref="y",
                     text="🎯 30/7 model target",
                     showarrow=False,
-                    font=dict(color="#1AD5C7", size=12),
+                    font=dict(color="#ffffff", size=12),
                     bgcolor="rgba(0,0,0,0)",
                     xanchor="left"
                 )
