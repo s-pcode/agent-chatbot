@@ -133,9 +133,9 @@ if st.session_state.get("pending_form"):
         if avg <= 1.5:
             selected = "âtv111"
         elif avg <= 2.2:
-            selected = "âtv802"
-        else:
             selected = "âtv808"
+        else:
+            selected = "âtv802"
         vault_info = vault_map[selected]
         recommendation = f"Based on your inputs, âTARS recommends:\n\n**{vault_info['label']}**\n\n{vault_info['desc']}"
         st.success(recommendation)
