@@ -10,7 +10,9 @@ from dotenv import load_dotenv
 # --- Setup ---
 load_dotenv()
 st.set_page_config(page_title="Agent âTARS Chat", page_icon=":robot_face:")
-st.title(":robot_face: chat with âTARS")
+st.subheader(":robot_face: aarnâ’s DeFi agent >> â_TARS >> tokenized autonomous reinforcement sentience")
+st.text("â_TARS is sentience for DeFi — your autonomous strategist built on reinforcement learning, protocol intuition, and deep vault wisdom.")
+st.divider()
 # --- Session State ---
 if "messages" not in st.session_state:
     st.session_state["messages"] = []
