@@ -236,7 +236,11 @@ elif "user_input" in st.session_state:
                 chart_placeholder.plotly_chart(fig, use_container_width=True)
 
             elif isinstance(reply, str):
-                placeholder.markdown(reply)
+                if reply.startswith("http") and any(reply.endswith(ext) for ext in [".png", ".jpg", ".jpeg", ".webp", ".gif"]):
+                    placeholder.image(reply, caption="📷 Generated Image", use_column_width=True)
+                else:
+                    placeholder.markdown(reply)
+
                 st.session_state.messages.append({"role": "assistant", "content": reply})
 
             else:
